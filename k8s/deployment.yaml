@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dll-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dll-api
+  template:
+    metadata:
+      labels:
+        app: dll-api
+    spec:
+      containers:
+      - name: dll-api
+        image: <account-id>.dkr.ecr.us-east-1.amazonaws.com/dll-api:latest
+        ports:
+        - containerPort: 8080
+--------------------------------------------------
+apiVersion: v1
+kind: Service
+metadata:
+  name: dll-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: dll-api
+  ports:
+  - port: 80
+    targetPort: 8080
