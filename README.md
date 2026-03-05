@@ -26,6 +26,8 @@ terraform plan
 terrafrom apply
 ```
 ## Architecture Diagram
+```
+
                         Internet
                             │
                             ▼
@@ -63,7 +65,7 @@ terrafrom apply
                           ▼
           Amazon Elastic Container Registry
 
-
+```
 
 # Unit testing
 - Include a test suite that covers also edge cases (empty list, removing from a single-node list).
