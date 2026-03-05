@@ -67,8 +67,10 @@ terrafrom apply
 # Unit testing
 - Include a test suite that covers also edge cases (empty list, removing from a single-node list).
 
+pytest tests
+
 # Additional details
-- After finishing, upload the changes in a Pull Request, assign it to yourself and ensure you request review from any of the invited collaborators to your repository.
+- Test with develop branch
 
 # Future implementations
  Implement JSON logging for every operation (e.g., `{"event": "node_added", "value": 10, "timestamp": "..."}`) to demonstrate SRE/Monitoring proficiency.
