@@ -1,5 +1,5 @@
 # Challenge
-Implement a cloud based Doubly Linked List from scratch in the language of your choice (Python or Go recommended for DevOps).
+The application was built in Python
 
 The application needs to support standard DDL operations:
 - Insert head
@@ -10,21 +10,24 @@ The application needs to support standard DDL operations:
 
 # Building the image
 Test in locally
-
+```
  docker build -t dll-api .
  docker run -p 8080:80 dll-api:latest
-
+```
 
 ## Cloud Infrastructure (IaC)
  The service will be run in a EKS service
 
 
 # Deployment Guide
+```
 terraform init
 terraform plan
 terrafrom apply
-
+```
 ## Architecture Diagram
+```
+
                         Internet
                             │
                             ▼
@@ -62,7 +65,7 @@ terrafrom apply
                           ▼
           Amazon Elastic Container Registry
 
-
+```
 
 # Unit testing
 - Include a test suite that covers also edge cases (empty list, removing from a single-node list).
