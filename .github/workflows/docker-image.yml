@@ -1,12 +1,13 @@
-name: CI
+name: Deploy ECS
 
 on:
  push:
-  branches: [ main ]
+  branches: [main]
 
 jobs:
 
  build:
+
   runs-on: ubuntu-latest
 
   steps:
@@ -15,3 +16,15 @@ jobs:
 
   - name: Build Docker
     run: docker build -t dll-api .
+
+  - name: Push to ECR
+    run: |
+      docker tag dll-api:latest $ECR_REPO
+      docker push $ECR_REPO
+
+  - name: Deploy ECS
+    run: |
+      aws ecs update-service \
+        --cluster dll-cluster \
+        --service dll-service \
+        --force-new-deployment
